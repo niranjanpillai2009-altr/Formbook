@@ -1,0 +1,122 @@
+{
+  "cv_summary": {
+    "accuracy": {
+      "xgboost": 0.5513,
+      "ratings_logit": 0.5513,
+      "ensemble": 0.5518,
+      "random_forest": 0.5513,
+      "elo_logit": 0.5452,
+      "lightgbm": 0.5456,
+      "logreg": 0.5439,
+      "prior": 0.4469
+    },
+    "log_loss": {
+      "xgboost": 0.9596,
+      "ratings_logit": 0.9608,
+      "ensemble": 0.9615,
+      "random_forest": 0.9658,
+      "elo_logit": 0.968,
+      "lightgbm": 0.9717,
+      "logreg": 0.9774,
+      "prior": 1.0653
+    },
+    "brier": {
+      "xgboost": 0.5672,
+      "ratings_logit": 0.5684,
+      "ensemble": 0.5682,
+      "random_forest": 0.5706,
+      "elo_logit": 0.5726,
+      "lightgbm": 0.5741,
+      "logreg": 0.576,
+      "prior": 0.6445
+    },
+    "rps": {
+      "xgboost": 0.1987,
+      "ratings_logit": 0.1993,
+      "ensemble": 0.199,
+      "random_forest": 0.1998,
+      "elo_logit": 0.2013,
+      "lightgbm": 0.2011,
+      "logreg": 0.2016,
+      "prior": 0.2358
+    }
+  },
+  "holdout": {
+    "accuracy": {
+      "ratings_logit": 0.5105,
+      "ensemble": 0.5026,
+      "random_forest": 0.5079,
+      "xgboost": 0.5118,
+      "logreg": 0.5,
+      "elo_logit": 0.4947,
+      "lightgbm": 0.5039,
+      "prior": 0.4171
+    },
+    "log_loss": {
+      "ratings_logit": 1.0079,
+      "ensemble": 1.0092,
+      "random_forest": 1.0111,
+      "xgboost": 1.0115,
+      "logreg": 1.0137,
+      "elo_logit": 1.0187,
+      "lightgbm": 1.021,
+      "prior": 1.0836
+    },
+    "brier": {
+      "ratings_logit": 0.6042,
+      "ensemble": 0.6049,
+      "random_forest": 0.6055,
+      "xgboost": 0.6059,
+      "logreg": 0.608,
+      "elo_logit": 0.6116,
+      "lightgbm": 0.6125,
+      "prior": 0.6569
+    },
+    "rps": {
+      "ratings_logit": 0.2059,
+      "ensemble": 0.2058,
+      "random_forest": 0.206,
+      "xgboost": 0.2061,
+      "logreg": 0.2069,
+      "elo_logit": 0.21,
+      "lightgbm": 0.2084,
+      "prior": 0.2324
+    }
+  },
+  "holdout_by_season": [
+    {
+      "accuracy": 0.5263,
+      "log_loss": 0.993,
+      "brier": 0.5934,
+      "rps": 0.2037,
+      "model": "xgboost",
+      "season": 2024
+    },
+    {
+      "accuracy": 0.4974,
+      "log_loss": 1.03,
+      "brier": 0.6184,
+      "rps": 0.2085,
+      "model": "xgboost",
+      "season": 2025
+    },
+    {
+      "accuracy": 0.5184,
+      "log_loss": 0.9874,
+      "brier": 0.5902,
+      "rps": 0.2023,
+      "model": "ensemble",
+      "season": 2024
+    },
+    {
+      "accuracy": 0.4868,
+      "log_loss": 1.0309,
+      "brier": 0.6195,
+      "rps": 0.2093,
+      "model": "ensemble",
+      "season": 2025
+    }
+  ],
+  "deployed": "xgboost",
+  "n_features": 281
+}

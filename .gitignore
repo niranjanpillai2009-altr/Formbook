@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Large, regenerable artefacts (rebuilt by run_pipeline.py / refresh_site.py)
+data/processed/features.parquet
+models/eval_artifacts.joblib
+site/data.json
+reports/*.txt
+site/index.html

@@ -1,0 +1,36 @@
+# Rebuilds the Formbook page every morning with the latest results and
+# fixtures, and commits it to docs/ so GitHub Pages serves the fresh version.
+# Enable Pages once: Settings -> Pages -> "Deploy from a branch" -> main, /docs.
+name: refresh-formbook
+
+on:
+  schedule:
+    - cron: "0 11 * * *"      # 07:00 America/New_York in summer, 06:00 in winter
+  workflow_dispatch:          # or run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Rebuild the page
+        run: python refresh_site.py --standalone --no-bundle --out docs/index.html
+      - name: Commit if anything changed
+        run: |
+          git config user.name "formbook-bot"
+          git config user.email "formbook-bot@users.noreply.github.com"
+          git add docs/index.html data/raw data/processed/matches.csv data/processed/matches.parquet
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "Refresh Formbook ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
